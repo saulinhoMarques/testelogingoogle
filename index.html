@@ -1,24 +1,37 @@
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login com Google</title>
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+    <title>Firebase Auth Example</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Login com Google</h1>
-    <button id="loginGoogle">Entrar com Google</button>
-    <button id="logout">Sair</button>
-    <div id="userInfo"></div>
-  </div>
+    <h1>Bem-vindo ao Sunseeker!</h1>
 
-  <script src="app.js"></script>
+    <div id="auth-container">
+        <h2>Faça Login</h2>
+        <!-- Campos de email/senha (desabilitados na sua config, mas mantidos como exemplo) -->
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Senha">
+        <button id="signup-email-btn">Cadastrar (Email/Senha)</button>
+        <button id="login-email-btn">Entrar (Email/Senha)</button>
+        <p>
+        <button id="login-google-btn">Entrar com Google</button>
+    </div>
+
+    <div id="user-info" style="display: none;">
+        <h2>Informações do Usuário</h2>
+        <p>Olá, <span id="user-display-name"></span> (<span id="user-email"></span>)!</p>
+        <button id="signout-btn">Sair</button>
+    </div>
+
+    <!-- Importe os SDKs do Firebase -->
+    <!-- Firebase SDK principal (sempre primeiro) -->
+    <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app-compat.js"></script>
+    <!-- Firebase Auth SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth-compat.js"></script>
+    <!-- Adicione mais SDKs conforme precisar (Firestore, etc.) -->
+
+    <!-- Conecte seu script -->
+    <script src="script.js"></script>
 </body>
 </html>
