@@ -1,14 +1,15 @@
-
-// Substitua pelos seus dados do Firebase
+// Configuração do Firebase
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY",
-  authDomain: "SEU_PROJETO.firebaseapp.com",
-  projectId: "SEU_PROJETO",
-  storageBucket: "SEU_PROJETO.appspot.com",
-  messagingSenderId: "SEU_ID",
-  appId: "SUA_APP_ID"
+  apiKey: "AIzaSyDbsF__gX5x5HMLIIeLxj72owJgfctvZUw",
+  authDomain: "sunseeker-4bc7d.firebaseapp.com",
+  projectId: "sunseeker-4bc7d",
+  storageBucket: "sunseeker-4bc7d.appspot.com",
+  messagingSenderId: "964999658895",
+  appId: "1:964999658895:web:0fe6e2daab4f9c73a81ffa",
+  measurementId: "G-5FNYJJY3K1"
 };
 
+// Inicializar Firebase
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
@@ -23,18 +24,19 @@ loginButton.addEventListener('click', () => {
     .then(result => {
       const user = result.user;
       userInfo.innerHTML = `
-        <p>Bem-vindo, ${user.displayName}</p>
-        <p>Email: ${user.email}</p>
-        <img src="${user.photoURL}" width="100"/>
+        <p>👋 Bem-vindo, <strong>${user.displayName}</strong></p>
+        <p>📧 Email: ${user.email}</p>
+        <img src="${user.photoURL}" width="100" alt="Foto de ${user.displayName}"/>
       `;
     })
     .catch(error => {
       console.error(error);
+      alert('Erro ao fazer login: ' + error.message);
     });
 });
 
 logoutButton.addEventListener('click', () => {
   auth.signOut().then(() => {
-    userInfo.innerHTML = '<p>Você saiu</p>';
+    userInfo.innerHTML = '<p>Você saiu. Até mais!</p>';
   });
 });
